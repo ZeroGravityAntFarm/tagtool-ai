@@ -1,0 +1,538 @@
+[
+  {
+    "command": "Add",
+    "purpose": "Add a new item or element to a collection"
+  },
+  {
+    "command": "AddFile",
+    "purpose": "Add a file to the current cache or project"
+  },
+  {
+    "command": "AddBlockElements",
+    "purpose": "Add elements to a block structure within a tag"
+  },
+  {
+    "command": "AnimationTest",
+    "purpose": "Test or preview animation data"
+  },
+  {
+    "command": "ApplyModPackage",
+    "purpose": "Apply a mod package to the game files"
+  },
+  {
+    "command": "ApplySprintFixups",
+    "purpose": "Apply fixes or corrections related to sprint mechanics"
+  },
+  {
+    "command": "CleanCacheFiles",
+    "purpose": "Remove unnecessary or temporary data from cache files"
+  },
+  {
+    "command": "CleanCsvFile",
+    "purpose": "Clean or format CSV data files"
+  },
+  {
+    "command": "Clear",
+    "purpose": "Clear the console or current working data"
+  },
+  {
+    "command": "ClearMultiplayerCustomization",
+    "purpose": "Reset multiplayer customization settings"
+  },
+  {
+    "command": "CollisionModelTest",
+    "purpose": "Test collision model geometry and physics"
+  },
+  {
+    "command": "CollisionTest",
+    "purpose": "Test collision detection systems"
+  },
+  {
+    "command": "Compile",
+    "purpose": "Compile data or scripts into usable format"
+  },
+  {
+    "command": "CompileScripts",
+    "purpose": "Compile scripting code for the game engine"
+  },
+  {
+    "command": "ConvertPlugins",
+    "purpose": "Convert plugin files between formats"
+  },
+  {
+    "command": "ConvertTag",
+    "purpose": "Convert a tag from one format or version to another"
+  },
+  {
+    "command": "CopyBlockElements",
+    "purpose": "Copy block elements within or between tags"
+  },
+  {
+    "command": "CopyForgePalette",
+    "purpose": "Copy Forge mode palette configurations"
+  },
+  {
+    "command": "CopyTagNames",
+    "purpose": "Copy tag naming data"
+  },
+  {
+    "command": "CreateCharacterType",
+    "purpose": "Create a new character type definition"
+  },
+  {
+    "command": "CreateTag",
+    "purpose": "Create a new tag file"
+  },
+  {
+    "command": "DeleteTag",
+    "purpose": "Delete an existing tag from the cache"
+  },
+  {
+    "command": "Disassemble",
+    "purpose": "Disassemble compiled code or data into readable format"
+  },
+  {
+    "command": "DumpLog",
+    "purpose": "Output log information to a file"
+  },
+  {
+    "command": "DumpMopp",
+    "purpose": "Dump MOPP (Memory-Optimized Partial Polytope) collision data"
+  },
+  {
+    "command": "DumpRenderGeometry",
+    "purpose": "Export render geometry data to a file"
+  },
+  {
+    "command": "DumpScripts",
+    "purpose": "Export script data to readable format"
+  },
+  {
+    "command": "DuplicateTag",
+    "purpose": "Create a duplicate copy of an existing tag"
+  },
+  {
+    "command": "ECHO",
+    "purpose": "Display a message or value to the console"
+  },
+  {
+    "command": "EditBlock",
+    "purpose": "Edit a block structure within a tag"
+  },
+  {
+    "command": "EditTag",
+    "purpose": "Open a tag for editing"
+  },
+  {
+    "command": "Exit",
+    "purpose": "Exit the current context or close the tool"
+  },
+  {
+    "command": "ExitTo",
+    "purpose": "Exit to a specific context or level"
+  },
+  {
+    "command": "ExportModPackage",
+    "purpose": "Export modifications as a mod package"
+  },
+  {
+    "command": "ExportSound",
+    "purpose": "Export sound files from the cache"
+  },
+  {
+    "command": "ExportTagDefinitions",
+    "purpose": "Export tag structure definitions"
+  },
+  {
+    "command": "ExportTagMod",
+    "purpose": "Export a modified tag as a mod file"
+  },
+  {
+    "command": "ExtractAllTags",
+    "purpose": "Extract all tags from the cache file"
+  },
+  {
+    "command": "ExtractBinkFile",
+    "purpose": "Extract Bink video files from the cache"
+  },
+  {
+    "command": "ExtractBitmap",
+    "purpose": "Extract a bitmap/texture image from a tag"
+  },
+  {
+    "command": "ExtractBitmaps",
+    "purpose": "Extract multiple bitmap/texture images"
+  },
+  {
+    "command": "ExtractCollisionGeometry",
+    "purpose": "Extract collision mesh geometry data"
+  },
+  {
+    "command": "ExtractFile",
+    "purpose": "Extract a single file from the cache"
+  },
+  {
+    "command": "ExtractFiles",
+    "purpose": "Extract multiple files from the cache"
+  },
+  {
+    "command": "ExtractModel",
+    "purpose": "Extract 3D model data from tags"
+  },
+  {
+    "command": "ExtractPathfindingGeometry",
+    "purpose": "Extract pathfinding navigation mesh data"
+  },
+  {
+    "command": "ExtractRenderGeometry",
+    "purpose": "Extract renderable geometry/model data"
+  },
+  {
+    "command": "ExtractResource",
+    "purpose": "Extract a resource file from the cache"
+  },
+  {
+    "command": "ExtractScripts",
+    "purpose": "Extract game scripts to editable format"
+  },
+  {
+    "command": "ExtractSound",
+    "purpose": "Extract audio/sound files from tags"
+  },
+  {
+    "command": "ExtractTag",
+    "purpose": "Extract a specific tag from the cache"
+  },
+  {
+    "command": "ExtractXMA",
+    "purpose": "Extract XMA (Xbox Media Audio) files"
+  },
+  {
+    "command": "ExtractZonesAreasModel",
+    "purpose": "Extract zone and area model geometry"
+  },
+  {
+    "command": "ForEach",
+    "purpose": "Iterate over a collection and execute commands"
+  },
+  {
+    "command": "GenerateAssemblyPlugins",
+    "purpose": "Generate plugin files for Assembly editor"
+  },
+  {
+    "command": "GenerateJumpHints",
+    "purpose": "Generate navigation jump hint data"
+  },
+  {
+    "command": "GenerateRenderMethodTemplate",
+    "purpose": "Generate a template for shader/render methods"
+  },
+  {
+    "command": "GenerateShader",
+    "purpose": "Generate shader code or data"
+  },
+  {
+    "command": "GenerateTagNames",
+    "purpose": "Generate or rebuild tag naming data"
+  },
+  {
+    "command": "GenerateTagStructures",
+    "purpose": "Generate tag structure definitions"
+  },
+  {
+    "command": "GetMapInfo",
+    "purpose": "Retrieve information about the current map file"
+  },
+  {
+    "command": "GetResourceInfo",
+    "purpose": "Get information about a specific resource"
+  },
+  {
+    "command": "GetString",
+    "purpose": "Retrieve a string value from string tables"
+  },
+  {
+    "command": "GetTagAddress",
+    "purpose": "Get the memory address of a tag"
+  },
+  {
+    "command": "GetTagInfo",
+    "purpose": "Retrieve information about a specific tag"
+  },
+  {
+    "command": "Import",
+    "purpose": "Import data or files into the cache"
+  },
+  {
+    "command": "ImportBitmap",
+    "purpose": "Import bitmap/texture images into tags"
+  },
+  {
+    "command": "ImportSound",
+    "purpose": "Import audio files into sound tags"
+  },
+  {
+    "command": "ImportTag",
+    "purpose": "Import a tag file into the cache"
+  },
+  {
+    "command": "List",
+    "purpose": "List items in the current context"
+  },
+  {
+    "command": "ListAll",
+    "purpose": "List all available items of a type"
+  },
+  {
+    "command": "ListAllStrings",
+    "purpose": "List all string entries in string tables"
+  },
+  {
+    "command": "ListArguments",
+    "purpose": "List available command arguments"
+  },
+  {
+    "command": "ListBitmaps",
+    "purpose": "List all bitmap/texture tags"
+  },
+  {
+    "command": "ListBlamTags",
+    "purpose": "List Blam engine tags"
+  },
+  {
+    "command": "ListFields",
+    "purpose": "List fields in a tag structure"
+  },
+  {
+    "command": "ListFiles",
+    "purpose": "List files in the current cache or directory"
+  },
+  {
+    "command": "ListMultiMeshModels",
+    "purpose": "List models with multiple mesh components"
+  },
+  {
+    "command": "ListNullTags",
+    "purpose": "List tags with null or missing data"
+  },
+  {
+    "command": "ListOn",
+    "purpose": "Enable listing mode or output"
+  },
+  {
+    "command": "ListScripts",
+    "purpose": "List all game scripts in the cache"
+  },
+  {
+    "command": "ListStrings",
+    "purpose": "List string entries from string tables"
+  },
+  {
+    "command": "ListTags",
+    "purpose": "List tags in the current cache file"
+  },
+  {
+    "command": "ListUnnamedTags",
+    "purpose": "List tags without assigned names"
+  },
+  {
+    "command": "ListUnusedTags",
+    "purpose": "List tags that are not referenced anywhere"
+  },
+  {
+    "command": "ListVariants",
+    "purpose": "List variant configurations or options"
+  },
+  {
+    "command": "LocalizeTagResources",
+    "purpose": "Convert tag resources to localized versions"
+  },
+  {
+    "command": "MatchTags",
+    "purpose": "Find or match tags based on criteria"
+  },
+  {
+    "command": "MergeAnimationGraphs",
+    "purpose": "Combine multiple animation graph structures"
+  },
+  {
+    "command": "MergeModPackages",
+    "purpose": "Combine multiple mod packages into one"
+  },
+  {
+    "command": "MoppData",
+    "purpose": "Work with or display MOPP collision data"
+  },
+  {
+    "command": "NameBlamTag",
+    "purpose": "Assign a name to a Blam engine tag"
+  },
+  {
+    "command": "NameTag",
+    "purpose": "Assign or change a tag's name"
+  },
+  {
+    "command": "OpenCacheFile",
+    "purpose": "Open a cache file for editing"
+  },
+  {
+    "command": "PasteBlockElements",
+    "purpose": "Paste previously copied block elements"
+  },
+  {
+    "command": "Pause",
+    "purpose": "Pause execution or wait for user input"
+  },
+  {
+    "command": "PhysicsModelTest",
+    "purpose": "Test physics model behavior"
+  },
+  {
+    "command": "PokeTagChanges",
+    "purpose": "Apply or inject tag changes into memory"
+  },
+  {
+    "command": "PortArmorVariant",
+    "purpose": "Port armor variant data between versions"
+  },
+  {
+    "command": "PortingTest",
+    "purpose": "Test porting compatibility or functionality"
+  },
+  {
+    "command": "PortMultiplayerEvents",
+    "purpose": "Port multiplayer event data between versions"
+  },
+  {
+    "command": "PortMultiplayerScenario",
+    "purpose": "Port multiplayer scenario/map data"
+  },
+  {
+    "command": "PortTag",
+    "purpose": "Port a tag between game versions or formats"
+  },
+  {
+    "command": "RebuildCacheFiles",
+    "purpose": "Rebuild or recompile cache files"
+  },
+  {
+    "command": "RebuildStringIds",
+    "purpose": "Regenerate string identifier mappings"
+  },
+  {
+    "command": "RegenerateShaders",
+    "purpose": "Rebuild shader data or code"
+  },
+  {
+    "command": "RelocateResources",
+    "purpose": "Move or reassign resource file locations"
+  },
+  {
+    "command": "Remove",
+    "purpose": "Remove an item from a collection"
+  },
+  {
+    "command": "RemoveBlockElements",
+    "purpose": "Remove elements from a block structure"
+  },
+  {
+    "command": "RemoveString",
+    "purpose": "Delete a string from string tables"
+  },
+  {
+    "command": "RenderModelTest",
+    "purpose": "Test render model display and functionality"
+  },
+  {
+    "command": "ReplaceAllFiles",
+    "purpose": "Replace all files matching criteria"
+  },
+  {
+    "command": "ReplaceFile",
+    "purpose": "Replace a specific file in the cache"
+  },
+  {
+    "command": "ReplaceRenderGeometry",
+    "purpose": "Replace render geometry data in a model"
+  },
+  {
+    "command": "ResourceData",
+    "purpose": "Access or display resource data"
+  },
+  {
+    "command": "Restart",
+    "purpose": "Restart the tool or reload cache files"
+  },
+  {
+    "command": "SaveModdedTags",
+    "purpose": "Save all modified tags to disk"
+  },
+  {
+    "command": "SaveTagChanges",
+    "purpose": "Save changes made to a tag"
+  },
+  {
+    "command": "SaveTagNames",
+    "purpose": "Save tag naming data to file"
+  },
+  {
+    "command": "SetArgument",
+    "purpose": "Set a command argument value"
+  },
+  {
+    "command": "SetField",
+    "purpose": "Set a field value in a tag structure"
+  },
+  {
+    "command": "SetLocale",
+    "purpose": "Set the language/region locale"
+  },
+  {
+    "command": "SetString",
+    "purpose": "Set or modify a string in string tables"
+  },
+  {
+    "command": "SortModes",
+    "purpose": "Sort or organize modes/variants"
+  },
+  {
+    "command": "SpecifyBitmaps",
+    "purpose": "Specify or configure bitmap settings"
+  },
+  {
+    "command": "SpecifyShaders",
+    "purpose": "Specify or configure shader settings"
+  },
+  {
+    "command": "Stopwatch",
+    "purpose": "Measure execution time for operations"
+  },
+  {
+    "command": "StringId",
+    "purpose": "Work with or lookup string identifiers"
+  },
+  {
+    "command": "TagDependency",
+    "purpose": "View or manage tag dependency relationships"
+  },
+  {
+    "command": "TagResource",
+    "purpose": "Access or manage tag resource data"
+  },
+  {
+    "command": "Test",
+    "purpose": "Run a test command or function"
+  },
+  {
+    "command": "UpdateMapFiles",
+    "purpose": "Update map file data or references"
+  },
+  {
+    "command": "UpgradeModPackage",
+    "purpose": "Upgrade a mod package to newer version format"
+  },
+  {
+    "command": "UseAudioCache",
+    "purpose": "Switch to or enable audio cache usage"
+  }
+]
