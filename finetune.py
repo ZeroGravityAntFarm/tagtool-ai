@@ -50,7 +50,7 @@ model = prepare_model_for_kbit_training(model)
 model = get_peft_model(model, peft_config)
 
 # Load dataset
-dataset = load_dataset('json', data_files='eldewrito_commands.jsonl', split='train')
+dataset = load_dataset('json', data_files='dataset.json', split='train')
 
 # Format function for the dataset
 def format_instruction(sample):
