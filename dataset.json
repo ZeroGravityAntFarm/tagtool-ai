@@ -1,0 +1,182 @@
+[
+  {
+    "input": "Edit the generic Elite character AI and add weapon properties for the DMR by copying existing weapon configurations at index 4, then setting the weapon reference to the DMR weapon tag",
+    "output": "edittag ai\\generic.character\necho ==DMR...==\ncopyblockelements WeaponsProperties 4 1\npasteblockelements WeaponsProperties\nsetfield WeaponsProperties[47].Weapon objects\\weapons\\rifle\\dmr\\dmr.weapon\ncopyblockelements FiringPatternProperties 4 1\npasteblockelements FiringPatternProperties\nsetfield FiringPatternProperties[46].Weapon objects\\weapons\\rifle\\dmr\\dmr.weapon"
+  },
+  {
+    "input": "Add weapon properties for the powered Assault Rifle by copying weapon configuration at index 8 and setting up both weapon properties and firing patterns for the assault_rifle_power variant",
+    "output": "echo ==Assault Rifle PWR...==\ncopyblockelements WeaponsProperties 8 1\npasteblockelements WeaponsProperties\nsetfield WeaponsProperties[48].Weapon objects\\weapons\\rifle\\assault_rifle_power\\assault_rifle_power.weapon\ncopyblockelements FiringPatternProperties 8 1\npasteblockelements FiringPatternProperties\nsetfield FiringPatternProperties[47].Weapon objects\\weapons\\rifle\\assault_rifle_power\\assault_rifle_power.weapon"
+  },
+  {
+    "input": "Add weapon properties for the powered Plasma Pistol by copying weapon configuration at index 0 and setting references to plasma_pistol_power weapon tag",
+    "output": "echo ==Plasma Pistol PWR...==\ncopyblockelements WeaponsProperties 0 1\npasteblockelements WeaponsProperties\nsetfield WeaponsProperties[49].Weapon objects\\weapons\\pistol\\plasma_pistol\\plasma_pistol_power.weapon\ncopyblockelements FiringPatternProperties 0 1\npasteblockelements FiringPatternProperties\nsetfield FiringPatternProperties[48].weapon objects\\weapons\\pistol\\plasma_pistol\\plasma_pistol_power.weapon"
+  },
+  {
+    "input": "Add weapon properties for the standard Plasma Rifle by copying configuration at index 46 and setting up weapon and firing pattern references",
+    "output": "echo ==Plasma Rifle==\ncopyblockelements WeaponsProperties 46 1\nPasteBlockElements WeaponsProperties\nsetfield WeaponsProperties[50].weapon objects\\weapons\\rifle\\plasma_rifle\\plasma_rifle.weapon\ncopyblockelements FiringPatternProperties 45 1\nPasteBlockElements FiringPatternProperties\nsetfield FiringPatternProperties[49].weapon objects\\weapons\\rifle\\plasma_rifle\\plasma_rifle.weapon"
+  },
+  {
+    "input": "Add weapon properties for the powered Plasma Rifle variant, save all changes to the character tag, and exit the tag editor",
+    "output": "echo ==Plasma Rifle PWR==\ncopyblockelements WeaponsProperties 46 1\nPasteBlockElements WeaponsProperties\nsetfield WeaponsProperties[51].weapon objects\\weapons\\rifle\\plasma_rifle\\plasma_rifle_power.weapon\ncopyblockelements FiringPatternProperties 45 1\nPasteBlockElements FiringPatternProperties\nsetfield FiringPatternProperties[50].weapon objects\\weapons\\rifle\\plasma_rifle\\plasma_rifle_power.weapon\nSaveTagChanges\nExit"
+  },
+  {
+    "input": "Add new weapons to the weapon palette for all scenario tags containing 'levels\\atlas' in their path, adding plasma rifle, powered plasma pistol, energy blade, and powered plasma rifle to each scenario",
+    "output": "echo ==Weapon palettes==\nForEach scnr contains: \"levels\\atlas\" AddBlockElements weaponpalette 1 *\nForEach scnr contains: \"levels\\atlas\" setfield weaponpalette[*].Object objects\\weapons\\rifle\\plasma_rifle\\plasma_rifle.weapon\nForEach scnr contains: \"levels\\atlas\" AddBlockElements weaponpalette 1 *\nForEach scnr contains: \"levels\\atlas\" setfield weaponpalette[*].Object objects\\weapons\\pistol\\plasma_pistol\\plasma_pistol_power.weapon\nForEach scnr contains: \"levels\\atlas\" AddBlockElements weaponpalette 1 *\nForEach scnr contains: \"levels\\atlas\" setfield weaponpalette[*].Object objects\\weapons\\melee\\energy_blade\\energy_blade.weapon\nForEach scnr contains: \"levels\\atlas\" AddBlockElements weaponpalette 1 *\nForEach scnr contains: \"levels\\atlas\" setfield weaponpalette[*].Object objects\\weapons\\rifle\\plasma_rifle\\plasma_rifle_power.weapon"
+  },
+  {
+    "input": "Open the MCC sc130 map cache file and port Elite character AI tags without their dialogue data, then close the cache",
+    "output": "opencachefile firefightfolder\\source_maps\\mcc\\sc130.map\nporttag !dialogue objects\\characters\\elite\\ai\\elite.character\nporttag !dialogue objects\\characters\\elite\\ai\\elite_major.character\nporttag !dialogue objects\\characters\\elite\\ai\\elite_specops.character\nporttag !dialogue objects\\characters\\elite\\ai\\elite_specops_commander.character\nexit"
+  },
+  {
+    "input": "Open the Halo 3 110_hc map and port Elite dialogue sound files, then close the cache",
+    "output": "opencachefile firefightfolder\\source_maps\\h3\\110_hc.map\nporttag sound\\dialog\\combat\\elite1.dialogue\nporttag sound\\dialog\\combat\\elite2.dialogue\nexit"
+  },
+  {
+    "input": "Configure Elite minor character based on Halo Reach stats: set health/shield vitality for normal and legendary difficulties, configure shield recharge properties, add grenade throwing behavior, disable berserk weapons for charge properties, and assign dialogue voices",
+    "output": "echo ==Uses elite minor from reach==\nedittag objects\\characters\\elite\\ai\\elite.character\nsetfield VitalityProperties[0].NormalBodyVitality 70\nsetfield VitalityProperties[0].NormalShieldVitality 75\nsetfield VitalityProperties[0].LegendaryBodyVitality 100\nsetfield VitalityProperties[0].LegendaryShieldVitality 75\nsetfield VitalityProperties[0].ShieldRechargeTime 3\nsetfield VitalityProperties[0].ShieldRechargeDelayTime 8\nsetfield VitalityProperties[0].SoftPingShieldedThreshold 5\nsetfield VitalityProperties[0].SoftPingUnshieldedThreshold 5\nsetfield VitalityProperties[0].HardPingShieldedThreshold 99\nsetfield VitalityProperties[0].HardPingUnshieldedThreshold 20\nsetfield VitalityProperties[0].RuntimeShieldRechargeVelocity 0.3333\naddblockelements GrenadesProperties\nsetfield GrenadesProperties[0].GrenadeType CovenantPlasma\nsetfield GrenadesProperties[0].MinimumEnemyCount 1\nsetfield GrenadesProperties[0].EnemyRadius 3\nsetfield GrenadesProperties[0].GrenadeIdealVelocity 4\nsetfield GrenadesProperties[0].GrenadeVelocity 8\nsetfield GrenadesProperties[0].GrenadeRange 3 20\nsetfield GrenadesProperties[0].CollateralDamageRadius 2\nsetfield GrenadesProperties[0].GrenadeChance 0.4\nsetfield GrenadesProperties[0].GrenadeThrowCooldown 6\nsetfield GrenadesProperties[0].GrenadeUncoverChance 0.4\nsetfield GrenadesProperties[0].AntiVehicleGrenadeChance 0.4\nsetfield GrenadesProperties[0].GrenadeCount 1 2\nsetfield GrenadesProperties[0].NoGrenadesDroppedChance 0.5\nsetfield ChargeProperties[0].BerserkWeapon null\nsetfield ChargeProperties[1].BerserkWeapon null\nsetfield ChargeProperties[2].BerserkWeapon null\nsetfield Variants[0].Voices[0].Dialogue sound\\dialog\\combat\\elite1.dialogue\nsetfield Variants[0].Voices[1].Dialogue sound\\dialog\\combat\\elite2.dialogue\nsetfield Variants[1].Voices[0].Dialogue sound\\dialog\\combat\\elite1.dialogue\nsetfield Variants[1].Voices[1].Dialogue sound\\dialog\\combat\\elite2.dialogue\nsetfield Voice[0].DialogueVariations[0].Dialogue sound\\dialog\\combat\\elite1.dialogue\nsetfield Voice[0].DialogueVariations[1].Dialogue sound\\dialog\\combat\\elite2.dialogue\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Modify Elite combat style to include additional behaviors like grenade impulse, stalking, berserk wandering, perimeter tactics, presearch behaviors, and pursuit mechanics",
+    "output": "edittag objects\\characters\\elite\\ai\\elite.style\nSetField Behaviors2 GrenadeImpulse,Stalk,BerserkWanderImpulse,PerimeterAtTimeoutMorph,PerimeterAtInfectionSpew,StuckWithGrenadeBerserk,______PRESEARCH______,Presearch,PresearchUncover,DestroyCover,SuppressingFire,LeapOnCover,SearchSync,EngageSync,______SEARCH______,Search,Uncover,Investigate,Pursuit_sync,Pursuit\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Configure Elite officer (major) character based on Halo Reach stats with increased health/shields, particularly higher legendary shield values (155), and assign dialogue voices",
+    "output": "echo ==Uses elite officer from reach==\nedittag objects\\characters\\elite\\ai\\elite_major.character\nsetfield VitalityProperties[0].NormalBodyVitality 85\nsetfield VitalityProperties[0].NormalShieldVitality 75\nsetfield VitalityProperties[0].LegendaryBodyVitality 100\nsetfield VitalityProperties[0].LegendaryShieldVitality 155\nsetfield VitalityProperties[0].SoftPingShieldedThreshold 5\nsetfield VitalityProperties[0].SoftPingUnshieldedThreshold 5\nsetfield VitalityProperties[0].HardPingShieldedThreshold 99\nsetfield VitalityProperties[0].HardPingUnshieldedThreshold 20\nsetfield VitalityProperties[0].ShieldRechargeDelayTime 8\nsetfield VitalityProperties[0].ShieldRechargeTime 3\nsetfield VitalityProperties[0].RuntimeShieldRechargeVelocity 0.3333\nsetfield Variants[0].Voices[0].Dialogue sound\\dialog\\combat\\elite1.dialogue\nsetfield Variants[0].Voices[1].Dialogue sound\\dialog\\combat\\elite2.dialogue\nsetfield Variants[1].Voices[0].Dialogue sound\\dialog\\combat\\elite1.dialogue\nsetfield Variants[1].Voices[1].Dialogue sound\\dialog\\combat\\elite2.dialogue\nSaveTagChanges\nExit"
+  },
+  {
+    "input": "Configure Elite spec ops character based on Halo Reach stats with moderate health/shields, longer shield recharge delay (12 seconds), and assign dialogue voices",
+    "output": "echo ==Uses elite specops from reach==\nedittag objects\\characters\\elite\\ai\\elite_specops.character\naddblockelements VitalityProperties\nsetfield VitalityProperties[0].NormalBodyVitality 75\nsetfield VitalityProperties[0].NormalShieldVitality 80\nsetfield VitalityProperties[0].LegendaryBodyVitality 90\nsetfield VitalityProperties[0].LegendaryShieldVitality 100\nsetfield VitalityProperties[0].SoftPingShieldedThreshold 5\nsetfield VitalityProperties[0].SoftPingUnshieldedThreshold 5\nsetfield VitalityProperties[0].HardPingShieldedThreshold 99\nsetfield VitalityProperties[0].HardPingUnshieldedThreshold 15\nsetfield VitalityProperties[0].ShieldRechargeDelayTime 12\nsetfield VitalityProperties[0].ShieldRechargeTime 3\nsetfield VitalityProperties[0].ExtendedShieldDamageThreshold 0.3\nsetfield VitalityProperties[0].ExtendedBodyDamageThreshold 0.3\nsetfield VitalityProperties[0].RuntimeShieldRechargeVelocity 0.3333\nsetfield Variants[0].Voices[0].Dialogue sound\\dialog\\combat\\elite1.dialogue\nsetfield Variants[0].Voices[1].Dialogue sound\\dialog\\combat\\elite2.dialogue\nsetfield Variants[1].Voices[0].Dialogue sound\\dialog\\combat\\elite1.dialogue\nsetfield Variants[1].Voices[1].Dialogue sound\\dialog\\combat\\elite2.dialogue\nSaveTagChanges\nExit"
+  },
+  {
+    "input": "Configure Elite ultra (spec ops commander) character based on Halo Reach with very high health/shields (legendary shield reduced from 225 to 200 for balance), add energy sword berserk behavior with multiple charge property variants for different combat scenarios, and assign dialogue",
+    "output": "echo ==Uses elite ultra from reach (legendary shield reduced from 225 to 200 for fairness)==\nedittag objects\\characters\\elite\\ai\\elite_specops_commander.character\naddblockelements VitalityProperties\nsetfield VitalityProperties[0].NormalBodyVitality 90\nsetfield VitalityProperties[0].NormalShieldVitality 135\nsetfield VitalityProperties[0].LegendaryBodyVitality 120\nsetfield VitalityProperties[0].LegendaryShieldVitality 200\nsetfield VitalityProperties[0].SoftPingShieldedThreshold 5\nsetfield VitalityProperties[0].SoftPingUnshieldedThreshold 5\nsetfield VitalityProperties[0].HardPingShieldedThreshold 99\nsetfield VitalityProperties[0].HardPingUnshieldedThreshold 10\nsetfield VitalityProperties[0].ShieldRechargeDelayTime 8\nsetfield VitalityProperties[0].ShieldRechargeTime 3\nsetfield VitalityProperties[0].ExtendedShieldDamageThreshold 0.3\nsetfield VitalityProperties[0].ExtendedBodyDamageThreshold 0.3\nsetfield VitalityProperties[0].RuntimeShieldRechargeVelocity 0.3333\naddblockelements ChargeProperties\nsetfield ChargeProperties[0].MeleeConsiderRange 1.35\nsetfield ChargeProperties[0].MeleeChance 0.5\nsetfield ChargeProperties[0].MeleeAttackRange 1.25\nsetfield ChargeProperties[0].MeleeAbortRange 1.75\nsetfield ChargeProperties[0].MeleeAttackTimeout 2\nsetfield ChargeProperties[0].MeleeAttackDelayTimer 4\nsetfield ChargeProperties[0].ShieldDownBerserkChance 0.75 1\nsetfield ChargeProperties[0].ShielddownBerserkRanges 5 2.5\nsetfield ChargeProperties[0].BerserkWeapon objects\\weapons\\melee\\energy_blade\\energy_blade.weapon\nsetfield ChargeProperties[0].BeserkCooldown 3\ncopyblockelements ChargeProperties 0 1\npasteblockelements ChargeProperties\nsetfield ChargeProperties[1].MeleeChance 0.25\nsetfield ChargeProperties[1].ShieldDownBerserkChance 0 0\nsetfield ChargeProperties[1].ShielddownBerserkRanges 0 0\nsetfield ChargeProperties[1].BeserkCooldown 0\ncopyblockelements ChargeProperties 1 1\npasteblockelements ChargeProperties\nsetfield ChargeProperties[2].MeleeChance 0.75\nsetfield ChargeProperties[2].MeleeAttackDelayTimer 2\nsetfield ChargeProperties[2].ShieldDownBerserkChance 0.75 1\nsetfield ChargeProperties[2].ShielddownBerserkRanges 3 6\nsetfield ChargeProperties[2].BeserkCooldown 6\nsetfield Variants[0].Voices[0].Dialogue sound\\dialog\\combat\\elite1.dialogue\nsetfield Variants[0].Voices[1].Dialogue sound\\dialog\\combat\\elite2.dialogue\nSaveTagChanges\nExit"
+  },
+  {
+    "input": "Add enhanced Needler weapon configuration for Elite AI characters with detailed accuracy, firing rate, combat range, and burst pattern settings across different difficulty levels",
+    "output": "echo ==Needler buff for elites==\nedittag objects\\characters\\elite\\ai\\elite.character\naddblockelements WeaponsProperties\naddblockelements FiringPatternProperties\naddblockelements FiringPatternProperties[0].FiringPatterns\nsetfield WeaponsProperties[0].Weapon objects\\weapons\\pistol\\needler\\needler.weapon\nsetfield WeaponsProperties[0].MaximumFiringRange 15\nsetfield WeaponsProperties[0].MinimumFiringRange 0.5\nsetfield WeaponsProperties[0].NormalCombatRange 2.5 6\nsetfield WeaponsProperties[0].MaxSpecialTargetDistance 6\nsetfield WeaponsProperties[0].TimidCombatRange 4 8\nsetfield WeaponsProperties[0].AggressiveCombatRange 2 4\nsetfield WeaponsProperties[0].FirstBurstDelayTimeBounds 0.2 1.2\nsetfield WeaponsProperties[0].SurpriseDelayTime 1\nsetfield WeaponsProperties[0].DeathFireWildlyChance 0.2\nsetfield WeaponsProperties[0].DeathFireWildlyTime 0.8\nsetfield WeaponsProperties[0].DropWeaponLoadedBounds 0.6 0.9\nsetfield WeaponsProperties[0].DropWeaponAmmoBounds 30 50\nsetfield WeaponsProperties[0].NormalAccuracyBounds 0 0.5\nsetfield WeaponsProperties[0].NormalAccuracyTime 9\nsetfield WeaponsProperties[0].HeroicAccuracyBounds 0.25 0.75\nsetfield WeaponsProperties[0].HeroicAccuracyTime 6\nsetfield WeaponsProperties[0].LegendaryAccuracyBounds 0.5 1\nsetfield WeaponsProperties[0].LegendaryAccuracyTime 3\nsetfield FiringPatternProperties[0].Weapon objects\\weapons\\pistol\\needler\\needler.weapon\nsetfield FiringPatternProperties[0].FiringPatterns[0].RateOfFire 5\nsetfield FiringPatternProperties[0].FiringPatterns[0].TargetTracking 0.5\nsetfield FiringPatternProperties[0].FiringPatterns[0].TargetLeading 0.25\nsetfield FiringPatternProperties[0].FiringPatterns[0].BurstDurationBounds 0.4 1.1\nsetfield FiringPatternProperties[0].FiringPatterns[0].BurstSeparationBounds 1.6 3.2\nSaveTagChanges\nExit"
+  },
+  {
+    "input": "Create new string IDs for boss_gold and 1_sword, then add a new gold color variant to the Elite biped's color change permutations with specific RGB color values",
+    "output": "echo ==Add gold elite boss==\nstringid add boss_gold\nstringid add 1_sword\nedittag objects\\characters\\elite\\elite.biped\naddblockelements ChangeColors[0].InitialPermutations\nsetfield ChangeColors[0].InitialPermutations[11].Weight 1\nsetfield ChangeColors[0].InitialPermutations[11].VariantName boss_gold\nsetfield ChangeColors[0].InitialPermutations[11].ColorLowerBound 0.6515298 0.5548695 0.1152776\nsetfield ChangeColors[0].InitialPermutations[11].ColorUpperBound 0.7460173 0.6446585 0.1836997\naddblockelements ChangeColors[1].InitialPermutations\nsetfield ChangeColors[1].InitialPermutations[11].Weight 1\nsetfield ChangeColors[1].InitialPermutations[11].VariantName boss_gold\nsetfield ChangeColors[1].InitialPermutations[11].ColorLowerBound 0.6515298 0.5548695 0.1152776\nsetfield ChangeColors[1].InitialPermutations[11].ColorUpperBound 0.7460173 0.6446585 0.1836997\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Duplicate the Elite spec ops commander character to create a new gold boss variant, set it to inherit from Elite major, use standard Elite style, apply boss_gold variant name, increase legendary shields to 225, and assign dialogue voices",
+    "output": "duplicatetag objects\\characters\\elite\\ai\\elite_specops_commander.character objects\\characters\\elite\\ai\\elite_gold_boss\nedittag objects\\characters\\elite\\ai\\elite_gold_boss.character\nsetfield ParentCharacter objects\\characters\\elite\\ai\\elite_major.character\nsetfield Style objects\\characters\\elite\\ai\\elite.style\nsetfield Variants[0].VariantName boss_gold\nsetfield VitalityProperties[0].LegendaryShieldVitality 225\nsetfield Variants[0].Voices[0].Dialogue sound\\dialog\\combat\\elite1.dialogue\nsetfield Variants[0].Voices[1].Dialogue sound\\dialog\\combat\\elite2.dialogue\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Add five Elite character variants (standard, major, spec ops, spec ops commander, and gold boss) to the sc100 scenario's character palette, set all squads to Covenant team, and save changes",
+    "output": "echo ==Character palettes==\nedittag levels\\atlas\\sc100\\sc100.scenario\nforeach squads Setfield Team Covenant\naddblockelements CharacterPalette 5 *\nsetfield CharacterPalette[35].Instance objects\\characters\\elite\\ai\\elite.character\nsetfield CharacterPalette[36].Instance objects\\characters\\elite\\ai\\elite_major.character\nsetfield CharacterPalette[37].Instance objects\\characters\\elite\\ai\\elite_specops.character\nsetfield CharacterPalette[38].Instance objects\\characters\\elite\\ai\\elite_specops_commander.character\nsetfield CharacterPalette[39].Instance objects\\characters\\elite\\ai\\elite_gold_boss.character\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Add five Elite character variants to sc110 scenario's character palette at indices 32-36, set all squads to Covenant team",
+    "output": "EditTag levels\\atlas\\sc110\\sc110.scenario\nforeach squads SetField Team Covenant\naddblockelements CharacterPalette 5 *\nsetfield CharacterPalette[32].Instance objects\\characters\\elite\\ai\\elite.character\nsetfield CharacterPalette[33].Instance objects\\characters\\elite\\ai\\elite_major.character\nsetfield CharacterPalette[34].Instance objects\\characters\\elite\\ai\\elite_specops.character\nsetfield CharacterPalette[35].Instance objects\\characters\\elite\\ai\\elite_specops_commander.character\nsetfield CharacterPalette[36].Instance objects\\characters\\elite\\ai\\elite_gold_boss.character\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Add five Elite character variants to sc120 scenario's character palette at indices 33-37, set all squads to Covenant team",
+    "output": "EditTag levels\\atlas\\sc120\\sc120.scenario\nforeach squads SetField Team Covenant\naddblockelements CharacterPalette 5 *\nsetfield CharacterPalette[33].Instance objects\\characters\\elite\\ai\\elite.character\nsetfield CharacterPalette[34].Instance objects\\characters\\elite\\ai\\elite_major.character\nsetfield CharacterPalette[35].Instance objects\\characters\\elite\\ai\\elite_specops.character\nsetfield CharacterPalette[36].Instance objects\\characters\\elite\\ai\\elite_specops_commander.character\nsetfield CharacterPalette[37].Instance objects\\characters\\elite\\ai\\elite_gold_boss.character\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Add five Elite character variants to sc130 scenario's character palette at indices 35-39, set all squads to Covenant team",
+    "output": "EditTag levels\\atlas\\sc130\\sc130.scenario\nforeach squads SetField Team Covenant\naddblockelements CharacterPalette 5 *\nsetfield CharacterPalette[35].Instance objects\\characters\\elite\\ai\\elite.character\nsetfield CharacterPalette[36].Instance objects\\characters\\elite\\ai\\elite_major.character\nsetfield CharacterPalette[37].Instance objects\\characters\\elite\\ai\\elite_specops.character\nsetfield CharacterPalette[38].Instance objects\\characters\\elite\\ai\\elite_specops_commander.character\nsetfield CharacterPalette[39].Instance objects\\characters\\elite\\ai\\elite_gold_boss.character\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Add five Elite character variants to sc140 scenario's character palette at indices 36-40, set all squads to Covenant team",
+    "output": "EditTag levels\\atlas\\sc140\\sc140.scenario\nforeach squads SetField Team Covenant\naddblockelements CharacterPalette 5 *\nsetfield CharacterPalette[36].Instance objects\\characters\\elite\\ai\\elite.character\nsetfield CharacterPalette[37].Instance objects\\characters\\elite\\ai\\elite_major.character\nsetfield CharacterPalette[38].Instance objects\\characters\\elite\\ai\\elite_specops.character\nsetfield CharacterPalette[39].Instance objects\\characters\\elite\\ai\\elite_specops_commander.character\nsetfield CharacterPalette[40].Instance objects\\characters\\elite\\ai\\elite_gold_boss.character\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Add five Elite character variants to h100 scenario's character palette at indices 32-36, set all squads to Covenant team",
+    "output": "EditTag levels\\atlas\\h100\\h100.scenario\nforeach squads SetField Team Covenant\naddblockelements CharacterPalette 5 *\nsetfield CharacterPalette[32].Instance objects\\characters\\elite\\ai\\elite.character\nsetfield CharacterPalette[33].Instance objects\\characters\\elite\\ai\\elite_major.character\nsetfield CharacterPalette[34].Instance objects\\characters\\elite\\ai\\elite_specops.character\nsetfield CharacterPalette[35].Instance objects\\characters\\elite\\ai\\elite_specops_commander.character\nsetfield CharacterPalette[36].Instance objects\\characters\\elite\\ai\\elite_gold_boss.character\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Add five Elite character variants to l200 scenario's character palette at indices 36-40, set all squads to Covenant team",
+    "output": "EditTag levels\\atlas\\l200\\l200.scenario\nforeach squads SetField Team Covenant\naddblockelements CharacterPalette 5 *\nsetfield CharacterPalette[36].Instance objects\\characters\\elite\\ai\\elite.character\nsetfield CharacterPalette[37].Instance objects\\characters\\elite\\ai\\elite_major.character\nsetfield CharacterPalette[38].Instance objects\\characters\\elite\\ai\\elite_specops.character\nsetfield CharacterPalette[39].Instance objects\\characters\\elite\\ai\\elite_specops_commander.character\nsetfield CharacterPalette[40].Instance objects\\characters\\elite\\ai\\elite_gold_boss.character\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Add five Elite character variants to l300 scenario's character palette at indices 41-45, set all squads to Covenant team",
+    "output": "EditTag levels\\atlas\\l300\\l300.scenario\nforeach squads SetField Team Covenant\naddblockelements CharacterPalette 5 *\nsetfield CharacterPalette[41].Instance objects\\characters\\elite\\ai\\elite.character\nsetfield CharacterPalette[42].Instance objects\\characters\\elite\\ai\\elite_major.character\nsetfield CharacterPalette[43].Instance objects\\characters\\elite\\ai\\elite_specops.character\nsetfield CharacterPalette[44].Instance objects\\characters\\elite\\ai\\elite_specops_commander.character\nsetfield CharacterPalette[45].Instance objects\\characters\\elite\\ai\\elite_gold_boss.character\nsavetagchanges\nExit"
+  },
+  {
+    "input": "Set animation inheritance for Elite model animation graph to inherit vehicle animations from Brute animation graph with TightenNodes mode, then sort modes and save",
+    "output": "echo ==Animation inheritance for phantoms==\nedittag objects\\characters\\elite\\elite.model_animation_graph\nsetinheritance vehicles objects\\characters\\brute\\brute.model_animation_graph TightenNodes\nSortModes\nsavetagchanges\nexit"
+  },
+  {
+    "input": "Add a melee animation override for Elites using Covenant Carbine to disable the default melee animation (set to animation index 164 with graph index -1), then sort modes",
+    "output": "echo ==Remove Carbine melee==\nEditTag objects\\characters\\elite\\elite.model_animation_graph\nAddBlockElements Modes[3].WeaponClass[5].WeaponType[6].Set.Actions\nSetField Modes[3].WeaponClass[5].WeaponType[6].Set.Actions[0].Label melee\nSetField Modes[3].WeaponClass[5].WeaponType[6].Set.Actions[0].GraphIndex -1\nSetField Modes[3].WeaponClass[5].WeaponType[6].Set.Actions[0].Animation 164\nSortModes\nSaveTagChanges\nExit"
+  },
+  {
+    "input": "Fix shield impact effects for Brute model by resetting global shield material to invalid and setting shield impact effects to overshield variants",
+    "output": "echo ==Fixing shield impacts...==\nedittag objects\\characters\\brute\\brute.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield ShieldImpactThirdPerson fx\\shield_impacts\\overshield_3p.shield_impact\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Brute jumppack model with same overshield effect configuration",
+    "output": "edittag objects\\characters\\brute\\brute_jumppack.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield ShieldImpactThirdPerson fx\\shield_impacts\\overshield_3p.shield_impact\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nsavetagchanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Brute chieftain model with overshield effects",
+    "output": "edittag objects\\characters\\brute\\brute_chieftain.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield ShieldImpactThirdPerson fx\\shield_impacts\\overshield_3p.shield_impact\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nsavetagchanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Bugger (Drone) model with overshield effects",
+    "output": "edittag objects\\characters\\bugger\\bugger.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield ShieldImpactThirdPerson fx\\shield_impacts\\overshield_3p.shield_impact\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nsavetagchanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Engineer model with overshield effects",
+    "output": "edittag objects\\characters\\engineer\\engineer.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield ShieldImpactThirdPerson fx\\shield_impacts\\overshield_3p.shield_impact\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nsavetagchanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Engineer freeform model with overshield effects",
+    "output": "edittag objects\\characters\\engineer\\engineer_freeform.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield ShieldImpactThirdPerson fx\\shield_impacts\\overshield_3p.shield_impact\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nsavetagchanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Grunt model, setting only overshield effect (no regular shield impact as Grunts don't have shields)",
+    "output": "edittag objects\\characters\\grunt\\grunt.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Jackal model with overshield effect only",
+    "output": "edittag objects\\characters\\jackal\\jackal.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Hunter model with overshield effect only",
+    "output": "edittag objects\\characters\\hunter\\hunter.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Flood combat Brute model with overshield effect only",
+    "output": "edittag objects\\characters\\floodcombat_brute\\floodcombat_brute.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Flood combat Elite model with both regular shield and overshield effects",
+    "output": "edittag objects\\characters\\floodcombat_elite\\floodcombat_elite.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield ShieldImpactThirdPerson fx\\shield_impacts\\overshield_3p.shield_impact\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Flood combat human model with overshield effect only",
+    "output": "edittag objects\\characters\\floodcombat_human\\floodcombat_human.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Flood ranged form model with overshield effect only",
+    "output": "edittag objects\\characters\\flood_ranged\\flood_ranged.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Flood stalker form model with overshield effect only",
+    "output": "edittag objects\\characters\\flood_stalker\\flood_stalker.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Flood tank form model with overshield effect only",
+    "output": "edittag objects\\characters\\flood_tank\\flood_tank.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Fix shield impact effects for Flood carrier model with overshield effect only",
+    "output": "edittag objects\\characters\\floodcarrier\\floodcarrier.model\nsetfield NewDamageInfo[0].GlobalShieldMaterialIndex 0\nsetfield NewDamageInfo[0].GlobalShieldMaterialName invalid\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nexit"
+  },
+  {
+    "input": "Set proper Elite-specific shield impact effects for standard Elite model (elite_3p for regular shields, elite_overshield_3p for overshield)",
+    "output": "edittag objects\\characters\\elite\\elite.model\nsetfield ShieldImpactThirdPerson fx\\shield_impacts\\elite_3p.shield_impact\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nExit"
+  },
+  {
+    "input": "Set proper Elite-specific shield impact effects for Elite lite model variant",
+    "output": "edittag objects\\characters\\elite\\elite_lite\\elite_lite.model\nsetfield ShieldImpactThirdPerson fx\\shield_impacts\\elite_3p.shield_impact\nsetfield OvershieldThirdPerson fx\\shield_impacts\\elite_overshield_3p.shield_impact\nSaveTagChanges\nExit"
+  },
+  {
+    "input": "Open ODST sc110 map and port/replace Brute animation graph, Brute AI character, and Phantom chin gun animations, then close cache",
+    "output": "OpenCacheFile firefightfolder\\source_maps\\odst\\sc110.map\nporttag replace single objects\\characters\\brute\\brute.jmad\nporttag replace single objects\\characters\\brute\\ai\\brute.character\nporttag replace objects\\vehicles\\phantom\\turrets\\chin_gun\\chin_gun.jmad\nExit"
+  }
+]
